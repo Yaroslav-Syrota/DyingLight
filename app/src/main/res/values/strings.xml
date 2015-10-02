@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DyingLight</string>
+
+    <string name="action_settings">settings</string>
+    <string name="action_progress">progress</string>
+    <string name="action_menu">menu</string>
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".MainActivity"
+      style="AppTheme">
+
+    <item android:id="@+id/action_progress"
+          android:title="@string/action_progress"
+          android:orderInCategory="1"
+          app:showAsAction="always"
+          android:icon="@drawable/ic_progress"/>
+    <item android:id="@+id/action_menu"
+          android:title="@string/action_menu"
+          android:orderInCategory="2"
+          app:showAsAction="always"
+          android:icon="@drawable/ic_menu"/>
+
+</menu>
