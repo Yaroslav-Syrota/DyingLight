@@ -3,7 +3,19 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_margin="5dp"
-              android:orientation="vertical"
-              android:background="#ff0c0eff">
+              android:orientation="vertical">
 
+    <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="#ff0c0eff">
+
+        <ua.com.thinkmobiles.dyinglight.viewes.TempProgress
+            android:id="@+id/tempProgress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </RelativeLayout>
 </LinearLayout>

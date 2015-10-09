@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import ua.com.thinkmobiles.dyinglight.fragments.FragmentMenu;
 import ua.com.thinkmobiles.dyinglight.fragments.FragmentProgress;
 import ua.com.thinkmobiles.dyinglight.fragments.FragmentUtil;
+import ua.com.thinkmobiles.dyinglight.viewes.TempProgress;
 
 /**
  * Created by CAT_Caterpiller on 02.10.2015.

@@ -15,9 +15,10 @@
         app:theme="@style/AppTheme"/>
 
     <LinearLayout
+        android:orientation="vertical"
         android:id="@+id/containerForFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp"
-        android:orientation="vertical"/>
+        />
 </LinearLayout>
