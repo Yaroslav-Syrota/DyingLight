@@ -1,13 +1,12 @@
 package ua.com.thinkmobiles.dyinglight.viewes;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -79,18 +78,60 @@ public class TempProgress extends View {
             public void run() {
                 try {
                     Thread.sleep(3000);
-                    for (int a = 50; a < 250; a++) {
-                        if(alpha == 0) {
-                            alpha = 225;
-                        }
-                        mPaint.setAlpha((int) alpha);
-                        Thread.sleep(100);
-                        mRectTopLeft.left = a;
-                        mRectTopLeft.top = a;
-                        mRectTopLeft.bottom = a + 30;
-                        mRectTopLeft.right = a + 30;
+                    timer = (mLineRight.yEnd - mLineRight.yStart) / 6;
+                    Log.d("TTT", String.valueOf(timer));
+                    for (int i = timer; i > 0; i--) {
+                        Thread.sleep(50);
+                        moveEndLine(mLineRight, mLineRight.xEnd, --mLineRight.yEnd);
+                        moveEndLine(mLineBottom, mLineBottom.xEnd, --mLineBottom.yEnd);
+                        moveEndLine(mLineFirstDiagonal, mLineFirstDiagonal.xEnd, --mLineFirstDiagonal.yEnd);
+                        moveRect(mRectBottomRight, mLineRight.xEnd, mLineRight.yEnd);
                         postInvalidate();
-                        alpha--;
+                    }
+                    Log.d("TTT", String.valueOf(timer));
+                    for (int i = timer; i > 0; i--) {
+                        Thread.sleep(50);
+                        moveEndLine(mLineRight, mLineRight.xEnd, --mLineRight.yEnd);
+                        moveEndLine(mLineFirstDiagonal, mLineFirstDiagonal.xEnd, --mLineFirstDiagonal.yEnd);
+                        moveRect(mRectBottomRight, mLineRight.xEnd, mLineRight.yEnd);
+                        moveLine(mLineBottom, ++mLineBottom.xStart, mLineBottom.yStart, mLineBottom.xEnd, --mLineBottom.yEnd);
+                        moveEndLine(mLineLeft, ++mLineLeft.xEnd, mLineLeft.yEnd);
+                        moveStartLine(mLineSecondDiagonal, ++mLineSecondDiagonal.xStart, mLineSecondDiagonal.yStart);
+                        moveRect(mRectBottomLeft, mLineBottom.xStart, mLineBottom.yStart);
+                        postInvalidate();
+                    }
+                    for (int i = timer; i > 0; i--) {
+                        Thread.sleep(50);
+                        moveEndLine(mLineRight, mLineRight.xEnd, --mLineRight.yEnd);
+                        moveEndLine(mLineFirstDiagonal, mLineFirstDiagonal.xEnd, --mLineFirstDiagonal.yEnd);
+                        moveRect(mRectBottomRight, mLineRight.xEnd, mLineRight.yEnd);
+                        moveLine(mLineBottom, ++mLineBottom.xStart, mLineBottom.yStart, mLineBottom.xEnd, --mLineBottom.yEnd);
+                        moveEndLine(mLineLeft, ++mLineLeft.xEnd, mLineLeft.yEnd);
+                        moveStartLine(mLineSecondDiagonal, ++mLineSecondDiagonal.xStart, mLineSecondDiagonal.yStart);
+                        moveRect(mRectBottomLeft, mLineBottom.xStart, mLineBottom.yStart);
+                        postInvalidate();
+                    }
+                    for (int i = timer; i > 0; i--) {
+                        Thread.sleep(50);
+                        moveStartLine(mLineBottom, ++mLineBottom.xStart, mLineBottom.yStart);
+                        moveLine(mLineLeft, mLineLeft.xStart, ++mLineLeft.yStart, ++mLineLeft.xEnd, mLineLeft.yEnd);
+                        moveStartLine(mLineTop, mLineTop.xStart, ++mLineTop.yStart);
+                        moveStartLine(mLineFirstDiagonal, mLineFirstDiagonal.xStart, ++mLineFirstDiagonal.yStart);
+                        moveRect(mRectBottomLeft, mLineBottom.xStart, mLineBottom.yStart);
+                        moveStartLine(mLineSecondDiagonal, ++mLineSecondDiagonal.xStart, mLineSecondDiagonal.yStart);
+                        moveRect(mRectTopLeft, mLineTop.xStart, mLineTop.yStart);
+                        postInvalidate();
+                    }
+                    for (int i = timer; i > 0; i--) {
+                        Thread.sleep(50);
+                        moveStartLine(mLineLeft, mLineLeft.xStart, ++mLineLeft.yStart);
+//                        moveLine(mLineLeft, mLineLeft.xStart, ++mLineLeft.yStart, ++mLineLeft.xEnd, mLineLeft.yEnd);
+//                        moveStartLine(mLineTop, mLineTop.xStart, ++mLineTop.yStart);
+//                        moveStartLine(mLineFirstDiagonal, mLineFirstDiagonal.xStart, ++mLineFirstDiagonal.yStart);
+                        moveRect(mRectTopLeft, mLineLeft.xStart, mLineLeft.yStart);
+//                        moveStartLine(mLineSecondDiagonal, ++mLineSecondDiagonal.xStart, mLineSecondDiagonal.yStart);
+//                        moveRect(mRectTopLeft, mLineTop.xStart, mLineTop.yStart);
+                        postInvalidate();
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -99,22 +140,29 @@ public class TempProgress extends View {
         }).start();
     }
 
-    private void mooveLine(Line _line, int _x, int _y) {
+    private void moveStartLine(Line _line, int _x, int _y) {
         _line.xStart = _x;
         _line.yStart = _y;
     }
 
-    private void revertMooveLine(Line _line, int _x, int _y) {
+    private void moveEndLine(Line _line, int _x, int _y) {
         _line.xEnd = _x;
         _line.yEnd = _y;
     }
 
-    private void mooveRect(Rect _rect, int _x, int _y) {
-        offset = _rect.right - _rect.left;
-        _rect.left = _x;
-        _rect.top = _y;
+    private void moveLine(Line _line, int _xStart, int _yStart, int _xEnd, int _yEnd) {
+        _line.xStart = _xStart;
+        _line.yStart = _yStart;
+        _line.xEnd = _xEnd;
+        _line.yEnd = _yEnd;
+    }
+
+    private void moveRect(Rect _rect, int _x, int _y) {
+        offset = (_rect.right - _rect.left) / 2;
+        _rect.left = _x - offset;
+        _rect.top = _y - offset;
         _rect.right = _x + offset;
-        _rect.bottom = _y = offset;
+        _rect.bottom = _y + offset;
     }
 }
 
