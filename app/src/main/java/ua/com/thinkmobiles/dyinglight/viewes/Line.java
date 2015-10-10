@@ -1,7 +1,7 @@
 package ua.com.thinkmobiles.dyinglight.viewes;
 
 /**
- * Created by Admin on 09.10.2015.
+ * Created by CAT_Caterpiller on 09.10.2015.
  */
 public class Line {
     int xStart, yStart, xEnd, yEnd;
