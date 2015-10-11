@@ -1,13 +1,15 @@
 package ua.com.thinkmobiles.dyinglight.viewes;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
+
+import ua.com.thinkmobiles.dyinglight.R;
 
 /**
  * Created by CAT_Caterpiller on 08.10.2015.
@@ -18,24 +20,23 @@ public class CustomViewProgress extends View {
     private Line mLineFirstDiagonal, mLineSecondDiagonal, mLineTop, mLineLeft, mLineRight, mLineBottom;
     private int offset;
     private int timer;
-    private int alpha = 225;
 
-    public CustomViewProgress(Context context) {
-        super(context);
-        initFigure();
-    }
 
     public CustomViewProgress(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initFigure();
+        initFigure(context, attrs);
     }
 
-    private void initFigure() {
+    private void initFigure(Context _context, AttributeSet _attrs) {
+        TypedArray array = _context.obtainStyledAttributes(_attrs,
+                R.styleable.CustomViewProgress);
+
         mPaint = new Paint();
         mPaintRect = new Paint();
-        mPaintRect.setColor(Color.GREEN);
-        mPaint.setStrokeWidth(5);
-        mPaint.setColor(Color.GREEN);
+
+        mPaintRect.setColor(array.getColor(R.styleable.CustomViewProgress_progressColor, Color.RED));
+        mPaint.setStrokeWidth(array.getInt(R.styleable.CustomViewProgress_progressStroke, 5));
+        mPaint.setColor(array.getColor(R.styleable.CustomViewProgress_progressColor, Color.RED));
 
         mRectTopLeft = new Rect(50, 50, 80, 80);
         mRectTopRight = new Rect(290, 50, 320, 80);
@@ -105,7 +106,7 @@ public class CustomViewProgress extends View {
             @Override
             public void run() {
                 try {
-                    for (int repeat = 3; repeat > 0; repeat--) {
+                    for (int repeat = 10; repeat > 0; repeat--) {
                         for (int j = 3; j > 0; j--) {
                             for (int i = 0; i <= 225; i++) {
                                 mPaintRect.setAlpha(i);

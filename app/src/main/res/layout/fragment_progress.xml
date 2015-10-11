@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_margin="5dp"
@@ -9,13 +10,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
-                    android:background="#ff0c0eff">
+                    android:background="#212121">
 
         <ua.com.thinkmobiles.dyinglight.viewes.CustomViewProgress
             android:id="@+id/tempProgress"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            />
+            custom:progressStroke="5"
+            custom:progressColor="#CDDC39"/>
 
     </RelativeLayout>
 </LinearLayout>
