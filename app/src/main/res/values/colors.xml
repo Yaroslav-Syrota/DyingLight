@@ -7,4 +7,10 @@
     <color name="textColorPrimary">#ffffffff</color>
     <color name="textColorSecondary">#727272</color>
     <color name="dividerColor">#ff000001</color>
+
+    <color name="foneColor">#ff090319</color>
+    <color name="sliceColor">#ff563f50</color>
+    <color name="activeSliceColor">#ff05bf5b</color>
+    <color name="lineColor">#ff9c361a</color>
+    <color name="centerColor">#ffec4501</color>
 </resources>

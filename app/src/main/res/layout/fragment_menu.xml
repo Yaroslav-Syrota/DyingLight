@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_margin="5dp"
               android:orientation="vertical"
-              android:background="#ffff180a">
+              android:background="@color/colorPrimary">
+
+    <ua.com.thinkmobiles.dyinglight.viewes.Lime
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        custom:limeSize="5"
+        custom:limeRadius="150dp"
+        custom:limeStroke="5dp"
+        custom:sliceStroke="3dp"
+        custom:sliceColor="@color/sliceColor"
+        custom:lineColor="@color/lineColor"
+        custom:activeColor="@color/activeSliceColor"
+        custom:centerColor="@color/centerColor"/>
 
 </LinearLayout>

@@ -10,14 +10,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
-                    android:background="#212121">
+                    android:background="@color/colorPrimary">
 
         <ua.com.thinkmobiles.dyinglight.viewes.CustomViewProgress
             android:id="@+id/tempProgress"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             custom:progressStroke="5"
-            custom:progressColor="#CDDC39"/>
+            custom:progressColor="#CDDC39"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="25dp"/>
+
+        <ua.com.thinkmobiles.dyinglight.viewes.CustomProgress
+            android:id="@+id/surfaceProgress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tempProgress"
+            android:layout_marginTop="30dp"/>
 
     </RelativeLayout>
 </LinearLayout>

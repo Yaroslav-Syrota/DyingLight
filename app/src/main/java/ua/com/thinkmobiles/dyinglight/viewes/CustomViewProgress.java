@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import ua.com.thinkmobiles.dyinglight.R;
+import ua.com.thinkmobiles.dyinglight.entities.Line;
 
 /**
  * Created by CAT_Caterpiller on 08.10.2015.
@@ -38,19 +39,19 @@ public class CustomViewProgress extends View {
         mPaint.setStrokeWidth(array.getInt(R.styleable.CustomViewProgress_progressStroke, 5));
         mPaint.setColor(array.getColor(R.styleable.CustomViewProgress_progressColor, Color.RED));
 
-        mRectTopLeft = new Rect(50, 50, 80, 80);
-        mRectTopRight = new Rect(290, 50, 320, 80);
-        mRectBottomLeft = new Rect(50, 290, 80, 320);
-        mRectBottomRight = new Rect(290, 290, 320, 320);
-        mRectCenter = new Rect(130, 130, 245, 245);
+        mRectTopLeft = new Rect(0, 0, 30, 30);
+        mRectTopRight = new Rect(240, 0, 270, 30);
+        mRectBottomLeft = new Rect(0, 240, 30, 270);
+        mRectBottomRight = new Rect(240, 240, 270, 270);
+        mRectCenter = new Rect(80, 80, 195, 195);
 
-        mLineFirstDiagonal = new Line(65, 65, 305, 305);
-        mLineSecondDiagonal = new Line(65, 305, 305, 65);
+        mLineFirstDiagonal = new Line(15, 15, 255, 255);
+        mLineSecondDiagonal = new Line(15, 255, 255, 15);
 
-        mLineTop = new Line(65, 65, 305, 65);
-        mLineLeft = new Line(65, 65, 65, 305);
-        mLineRight = new Line(305, 65, 305, 305);
-        mLineBottom = new Line(65, 305, 305, 305);
+        mLineTop = new Line(15, 15, 255, 15);
+        mLineLeft = new Line(15, 15, 15, 255);
+        mLineRight = new Line(255, 15, 255, 255);
+        mLineBottom = new Line(15, 255, 255, 255);
     }
 
     @Override

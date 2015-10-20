@@ -4,4 +4,14 @@
         <attr name="progressStroke" format="integer"/>
         <attr name="progressColor" format="color"/>
     </declare-styleable>
+    <declare-styleable name="Lime">
+        <attr name="limeSize" format="integer"/>
+        <attr name="limeStroke" format="dimension"/>
+        <attr name="sliceStroke" format="dimension"/>
+        <attr name="limeRadius" format="dimension"/>
+        <attr name="sliceColor" format="color"/>
+        <attr name="lineColor" format="color"/>
+        <attr name="centerColor" format="color"/>
+        <attr name="activeColor" format="color"/>
+    </declare-styleable>
 </resources>

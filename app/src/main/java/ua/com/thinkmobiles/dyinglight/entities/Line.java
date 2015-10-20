@@ -1,10 +1,10 @@
-package ua.com.thinkmobiles.dyinglight.viewes;
+package ua.com.thinkmobiles.dyinglight.entities;
 
 /**
  * Created by CAT_Caterpiller on 09.10.2015.
  */
 public class Line {
-    int xStart, yStart, xEnd, yEnd;
+    public int xStart, yStart, xEnd, yEnd;
 
     public Line() {
     }
